@@ -1,5 +1,8 @@
 
 export function myBind(thisArg) {
-    //TODO
-    //apply method "apply"
+    const sourceFun = this;
+    const res =  function() {
+        return sourceFun.apply(thisArg, arguments)
+    }
+    return res;
 }
