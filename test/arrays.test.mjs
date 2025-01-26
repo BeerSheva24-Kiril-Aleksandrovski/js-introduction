@@ -63,7 +63,7 @@ describe("iterating elements of array", () => {
 
 describe("sorting array", () => {
     const array = [10, 1000, -10, 30, 60]
-    it("numbers native sorting soting", () => {
+    it("numbers native sorting sorting", () => {
         const expected = [-10, 10, 30, 60, 1000];
         expect(array.toSorted((a, b) => a - b)).toEqual(expected);
     })
@@ -87,5 +87,21 @@ describe("array introspecting", () => {
     it("testing for all elements match acondition", () => {
         expect(array.every(num => num % 2 === 0)).toBeTruthy();
         expect(array.some(num => num % 2 !== 0)).toBeFalsy();
+    })
+})
+
+describe("slice, join, string-split", () => {
+    it("slice method", () => {
+        const array = [1, 2, 3, 4, 5];
+        const expected  = [2, 3, 4];
+        expect(array.slice(1, 4)).toEqual(expected);
+        const copyExpected = [1, 2, 3, 4, 5];
+        expect(array.slice()).toEqual(copyExpected);
+    })
+    it("join method", () => { 
+        const expectedStr = "10;1000;-10;30;60";
+        expect(array.join(";")).toBe(expectedStr);
+        const arStr = expectedStr.split(/;/);
+        expect(arStr).toEqual(array.map(s => s.toString()));
     })
 })
