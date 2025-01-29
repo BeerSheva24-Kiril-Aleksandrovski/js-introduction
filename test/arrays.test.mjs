@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest'
+import { ar } from 'vitest/dist/chunks/reporters.D7Jzd9GS.js';
 describe("finding elements in array", () => {
     it("method indexOf / lastIndexOf for primitives", () => {
         const ar = [1, 2, 3, 2, 4];
@@ -118,4 +119,20 @@ describe("map / reduce", () => {
         //write two reduce methods for taking sum of all array numbers
         //and minimal and maximal values for only one reduce call
     })
+})
+
+describe("destructuring array", () => {
+    it("assigning two first numbers of array to different variables", () => {
+        const [a, b] = array;
+        expect(a).toBe(array[0]);
+        expect(b).toBe(array[1]);
+    })
+    it("swapping of values using destructuring", () => {
+        let a = 10;
+        let b = 20;
+        const ar = [a, b];
+        expect(a).toBe(array[0]);
+        expect(b).toBe(array[1]);
+    })
+    
 })
