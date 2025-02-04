@@ -1,9 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { makeIteratorClosedRange, makeIterableClosedRange } from "../objects.mjs";
+import { makeGeneratorClosedRange, makeIterableBasedGenerator } from "../objects.mjs";
 describe("iterator pattern test", () => {
-    it("iterator test", () => {
+
+    it("iterator test based on generator function", () => {
         //
-        const iterator = makeIteratorClosedRange(1, 3);
+        const iterator = makeGeneratorClosedRange(1, 3);
         const expected = [1, 2, 3];
         const actual = [];
 
@@ -16,8 +17,8 @@ describe("iterator pattern test", () => {
         }
         expect(actual).toEqual(expected);
     });
-    it("terable test", () => {
-        const iterable = makeIterableClosedRange(1, 3);
+    it("terable test based on generator function", () => {
+        const iterable = makeIterableBasedGenerator(1, 3);
         const expected = [1, 2, 3];
         const actual = [];
         for (const num of iterable) {
